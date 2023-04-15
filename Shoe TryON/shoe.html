@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-language" content="en-EN" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+
+    <title>VTO</title>
+
+    <script src="../../helpers/ThreeHelper.js"></script>
+
+    <script src="../../libs/three/v136/build/three.js"></script>
+    <script src="../../libs/three/v136/examples/js/loaders/GLTFLoader.js"></script>
+
+    <script src="../../libs/three/v136/examples/js/loaders/RGBELoader.js"></script>
+
+    <script src="../../libs/three/v136/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="../../libs/three/v136/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="../../libs/three/v136/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="../../libs/three/v136/examples/js/shaders/CopyShader.js"></script>
+
+    <script src="../../libs/three/v136/examples/js/postprocessing/UnrealBloomPassTweaked.js"></script>
+    <script src="../../libs/three/v136/examples/js/shaders/LuminosityHighPassShader.js"></script>
+
+
+    <script src="../../helpers/Mirror.js"></script>
+    
+
+    <script src="../../helpers/landmarksStabilizers/OneEuroLMStabilizer.js"></script>
+    
+    <script src="./main.js"></script>
+
+    <style type='text/css'>
+      body {
+        margin: 0;
+        background-color: silver;
+        overflow: hidden;
+      }
+      #Canvas, #threeCanvas {
+        position: fixed;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        transform: rotateY(180deg);
+      }
+
+      #Canvas {
+        z-index: 0;
+      }
+      #threeCanvas {
+        z-index: 1;
+      }
+
+      #controls {
+        display: none;
+        position: fixed;
+        z-index: 2;
+        width: 100vw;
+        bottom: 0;
+        left: 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      #controls > div {
+        cursor: pointer;
+        flex-grow: 1;
+        font-variant: small-caps;
+        font-size: 14pt;
+        text-align: center;
+        min-width: 110px;
+        box-sizing: border-box;
+        padding-top: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        height: 40px;
+        color: #eee;
+      }
+
+      #controls > div:hover {
+        background: rgba(50, 50, 50, 0.5);
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id='Canvas'></canvas>
+
+    <canvas id='threeCanvas'></canvas>
+
+    <div id='controls'>
+      <div onclick = 'Mirror.load("assets/models3D/blackPanther.glb")'>Shoe</div>
+      <div onclick = 'Mirror.load(false)'>Video only</div>
+      <div onclick = 'Mirror.pause(true)'>Pause</div>
+      <div onclick = 'Mirror.resume(true)'>Resume</div>
+      <div onclick = 'Mirror.resize(400, 400)'>Resize</div>
+      <div onclick = 'capture_image()'>Capture</div>
+    </div>
+
+  </body>
+</html>
+ 
